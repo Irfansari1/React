@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Balsamiq+Sans&display=swap");
+
+.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  color: black;
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Amatic SC", cursive;
+  align-self: center;
+}
+
+.navbar a:hover {
+  background-color: #ace0f9;
+  color: black;
+}
+
+img {
+  width: 4rem;
+}
