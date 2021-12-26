@@ -1,13 +1,15 @@
 import styled from "styled-components";
+
 export const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  /* background: #E1F1DD; */
+  background: #e1f1dd;
   height: fit-content;
   /* padding: 5px; */
 `;
+
 export const RecipeCard = styled.div`
   height: 300px;
   background: #e1f1dd;
@@ -25,10 +27,12 @@ export const RecipeCard = styled.div`
     transition: all 0.3s ease-in;
   }
 `;
+
 export const RecipeImage = styled.img`
   height: 150px;
   border-radius: 10px;
 `;
+
 export const Button = styled.button`
   background-color: #00adb5;
   padding: 5px;
@@ -39,16 +43,22 @@ export const Button = styled.button`
   border-radius: 3px;
   cursor: pointer;
 `;
+
 export const RecipeHeader = styled.h1`
   font-size: 1.5rem;
   text-align: center;
+  background-color: #00adb5;
 `;
+
 export const ImgDiv = styled.div`
   display: flex;
   justify-content: center;
   margin: 50px;
+  background-color: #00adb5;
 `;
+
 export const HomeImg = styled.img`
+  background-color: #00adb5;
   width: 80%;
   max-width: 750px;
 `;

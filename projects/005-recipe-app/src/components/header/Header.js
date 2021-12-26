@@ -16,4 +16,5 @@ const Header = ({ setQuery, query, getData, mealTypes, setMeal, meal }) => {
     </HeaderContainer>
   );
 };
+
 export default Header;

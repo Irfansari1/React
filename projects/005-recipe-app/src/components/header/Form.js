@@ -1,10 +1,12 @@
 import React from "react";
 import { FormContainer, FoodInput, Button, Select } from "./HeaderStyles";
+
 const Form = ({ setQuery, query, getData, mealTypes, setMeal, meal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getData();
   };
+
   return (
     <FormContainer onSubmit={handleSubmit}>
       <FoodInput
@@ -27,4 +29,5 @@ const Form = ({ setQuery, query, getData, mealTypes, setMeal, meal }) => {
     </FormContainer>
   );
 };
+
 export default Form;

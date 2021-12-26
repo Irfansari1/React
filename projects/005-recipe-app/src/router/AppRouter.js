@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import About from "../pages/about/About";
 import Details from "../pages/details/Details";
 import Login from "../pages/login/Login";
+
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -20,4 +21,5 @@ const AppRouter = () => {
     </BrowserRouter>
   );
 };
+
 export default AppRouter;

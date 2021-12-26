@@ -11,7 +11,9 @@ const Home = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState();
   const [meal, setMeal] = useState(mealTypes[0].toLowerCase());
+
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`;
+
   const getData = async () => {
     if (query !== "") {
       const result = await axios.get(url);
@@ -25,6 +27,7 @@ const Home = () => {
       console.log("Please fill the form");
     }
   };
+
   return (
     <div>
       <Header
@@ -49,4 +52,5 @@ const Home = () => {
     </div>
   );
 };
+
 export default Home;
