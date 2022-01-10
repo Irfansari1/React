@@ -1,18 +1,24 @@
 import "./App.css";
-import Cards from "./components/cards/Cards";
-import MyNav from "./components/navbar/MyNav";
-import Header from "./components/header/Header";
+import Cards from "./components/Cards";
+import Header from "./components/Header";
+
+import MyNav from "./components/MyNav";
 import Home from "./pages/Home";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <MyNav />
-      <Home />
-      <MyNav />
-      <Header />
-      <Cards />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+    //<Header />
+    //<Cards />
   );
 }
 
