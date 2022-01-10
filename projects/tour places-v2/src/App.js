@@ -1,12 +1,15 @@
 import "./App.css";
 import Cards from "./components/cards/Cards";
-import Navbar from "./components/navbar/Navbar";
+import MyNav from "./components/navbar/MyNav";
 import Header from "./components/header/Header";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <MyNav />
+      <Home />
+      <MyNav />
       <Header />
       <Cards />
     </div>
