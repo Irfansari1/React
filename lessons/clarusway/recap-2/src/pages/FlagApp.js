@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const FlagApp = () => {
   const [countries, setCountries] = useState([]); //cekecegimiz yer array yapisinda oldugu icin
   const [hata, setHata] = useState(false);
+  const [status, setStatus] = useState(200);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3/all")
@@ -12,23 +13,23 @@ const FlagApp = () => {
         } else {
           setHata(true);
         }
-      }) //jsana ceviridik , data herhangi bir isim olabilir
+      }) //jsona ceviridik , data herhangi bir isim olabilir
       .then((data) => setCountries(data)) //ondan sonra bunu yap
       .catch((err) => console.log(err));
-  }, []); //component ilk baglandiginde calisacak
+  }, [hata]); //component ilk baglandiginde calisacak
   //map kullanirken unique bir key veriyoruz
 
   if (!hata) {
     return (
-      <div>
-        <h1>Countries</h1>
+      <div className="container text-center mt-4">
+        <h1 className="text-danger">{countries.length} Countries</h1>
         {countries.map((country) => {
           const { name, capital, flags } = country;
           return (
-            <div key={name.common}>
+            <div key={name.common} style={{ marginBottom: "20px" }}>
               <h2>{name.common}</h2>
-              <img src={flags[0]} alt="" />
-              <h4>{capital}</h4>
+              <h4>Capital={capital}</h4>
+              <img src={flags[0]} alt={name.common} width="30%" />
             </div>
           );
         })}
@@ -37,7 +38,15 @@ const FlagApp = () => {
   } else {
     return (
       <div>
-        <h1>!!Hata, Veriler Çekilemedi</h1>
+        <h1 className="bg-danger text-center text-light mt-5">
+          !!Hata, Veriler Çekilemedi-Code:{status}
+        </h1>
+        <button
+          className="btn btn-outline-warning"
+          onClick={() => setHata(false)}
+        >
+          Update
+        </button>
       </div>
     );
   }
