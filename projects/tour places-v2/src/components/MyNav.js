@@ -16,7 +16,9 @@ const MyNav = () => {
       <Navbar
         bg="light"
         expand="lg"
-        onSelect={(eventKey) => navigate(`/${eventKey}`)}
+        onSelect={(eventKey) =>
+          eventKey === "home" ? navigate("/") : navigate(`/${eventKey}`)
+        }
       >
         <Container>
           <Navbar.Brand>
