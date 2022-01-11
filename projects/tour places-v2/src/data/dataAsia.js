@@ -1,4 +1,4 @@
-export const data = [
+const dataAsia = [
   {
     id: 2,
     title: "Philippines",
@@ -32,3 +32,5 @@ export const data = [
     image: "https://wallpaperaccess.com/full/534182.jpg",
   },
 ];
+
+export default dataAsia;

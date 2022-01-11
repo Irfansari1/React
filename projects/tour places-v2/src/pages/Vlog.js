@@ -1,9 +1,10 @@
 import React from "react";
+import uc from "../img/uc.jpg";
 
 const Vlog = () => {
   return (
     <div>
-      <h1>Vlog</h1>
+      <img src={uc} alt="" style={{ marginLeft: "30%" }} />
     </div>
   );
 };

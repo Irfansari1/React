@@ -1,4 +1,4 @@
-export const data = [
+const dataEurope = [
   {
     id: 5,
     title: "Cappadocia",
@@ -27,3 +27,5 @@ export const data = [
       "https://images.unsplash.com/photo-1579033461380-adb47c3eb938?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bm9ydGhlcm4lMjBsaWdodHN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
   },
 ];
+
+export default dataEurope;
