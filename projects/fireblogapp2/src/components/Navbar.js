@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Logo from "../assets/Logo1.png";
 import { useAuth } from "../context/AuthContextProvider";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,20 +21,21 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     display: "none",
-    fontFamily: "Girassol",
+    fontFamily: "GRUNJA",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
     "& span": {
       fontSize: 30,
-      color: "white",
+      fontWeight: "bolder",
+      color: "#00acc1",
     },
   },
   appBar: {
-    backgroundColor: "#26a69a",
+    backgroundColor: "#ffa000",
   },
   logo: {
-    width: 50,
+    width: 180,
   },
   linkStyle: {
     textDecoration: "none",
@@ -53,14 +54,26 @@ export default function Navbar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { currentUser } = useAuth();
+  let { currentUser, logout } = useAuth();
+  const history = useHistory();
 
+  //materialUi dan gelenler setAnchorEl,
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    setAnchorEl(null);
+    logout();
+  };
+
+  const handleDashboard = () => {
+    setAnchorEl(null);
+    history.push("/");
   };
 
   return (
@@ -72,13 +85,17 @@ export default function Navbar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={handleDashboard}
           >
             <img src={Logo} alt="logo" className={classes.logo} />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            <span>Sari Blog</span>
-          </Typography>
-
+          <div className={classes.root}>
+            <Link to="/" className={classes.login}>
+              <Typography variant="h6" className={classes.title}>
+                <span>BLOGSMITH</span>
+              </Typography>
+            </Link>
+          </div>
           <div>
             <IconButton
               aria-label="account of current user"
@@ -105,11 +122,14 @@ export default function Navbar() {
                 open={open}
                 onClose={handleClose}
               >
-                <Link to="/login" className={classes.linkStyle}>
-                  <MenuItem onClick={handleClose}>Login</MenuItem>
+                <Link to="/profile" className={classes.linkStyle}>
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
                 </Link>
-                <Link to="/register" className={classes.linkStyle}>
-                  <MenuItem onClick={handleClose}>Register</MenuItem>
+                <Link to="/new-blog" className={classes.linkStyle}>
+                  <MenuItem onClick={handleClose}>New Blog</MenuItem>
+                </Link>
+                <Link to="/login" className={classes.linkStyle}>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Link>
               </Menu>
             ) : (

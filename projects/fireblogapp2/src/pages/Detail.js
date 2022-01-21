@@ -23,11 +23,13 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 70,
+    //marginTop: 70,
     marginBottom: 20,
+    backgroundColor: "#bdbdbd",
   },
   cardRoot: {
     minWidth: 250,
+    maxWidth: 700,
     width: "75vw",
     // maxWidth: 700,
   },
@@ -87,7 +89,7 @@ const Detail = ({ match }) => {
   return (
     <div className={classes.root}>
       <Typography className={classes.title} variant="h3" noWrap>
-        ──── Details ────
+        ─ ─ ─ ─ Details ─ ─ ─ ─
       </Typography>
       {result?.length > 0 &&
         result?.map((item, index) => (

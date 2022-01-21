@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//blogcontextprovider icerisinde olusturmustuk
 const NewBlog = () => {
   const classes = useStyles();
   const { currentUser } = useAuth();
@@ -43,7 +44,7 @@ const NewBlog = () => {
     try {
       addBlog(newBlog);
       history.push("/");
-      toastSuccessNotify("Blog added");
+      toastSuccessNotify("Blog is added");
     } catch (error) {
       toastErrorNotify("Blog can not be added");
     }
@@ -58,6 +59,8 @@ const NewBlog = () => {
     image: "",
     published_date: Date.now(),
   };
+  //"xs" ekran büüsede belirli bir genislikte kalmasini sagliyor
+  // cssbaseline, mui da kullanilan marjinleri sifirliyor
   return (
     <Container maxWidth="xs">
       <CssBaseline />
@@ -71,6 +74,7 @@ const NewBlog = () => {
       </div>
       <BlogForm blog={blog} handler={handler} />
     </Container>
+    //blogform componentini cagiriyoruz, bunu hem burada hem update te kullanacagiz
   );
 };
 

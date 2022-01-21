@@ -52,11 +52,11 @@ const UpdateBlog = ({ match }) => {
   }, [result]);
 
   const [updatedBlog, setUpdatedBlog] = useState(res);
-
+  //sayfa her render edildiginde verileri tekrar alabilmek icin
   useEffect(() => {
     setUpdatedBlog(res);
   }, [res]);
-
+  //blogcontextprovider da tanimladigimiz id buraya
   const handler = (blogToUpdate) => {
     try {
       updateBlog(res?.id, blogToUpdate);
