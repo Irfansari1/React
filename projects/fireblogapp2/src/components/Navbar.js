@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Logo from "../assets/Logo1.png";
 import { useAuth } from "../context/AuthContextProvider";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,7 +55,7 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   let { currentUser, logout } = useAuth();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   //materialUi dan gelenler setAnchorEl,
   const handleMenu = (event) => {
@@ -73,7 +73,7 @@ export default function Navbar() {
 
   const handleDashboard = () => {
     setAnchorEl(null);
-    history.push("/");
+    navigate("/");
   };
 
   return (

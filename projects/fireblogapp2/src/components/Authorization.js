@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import blokPng from "../assets/blok.png";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toastSuccessNotify, toastErrorNotify } from "../utils/ToastNotify";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -192,16 +192,16 @@ const LoginAndRegisterForm = (props) => {
 };
 
 const Authorization = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { signup, login, currentUser } = useAuth();
   const [method] = useState(props.method);
 
   useEffect(() => {
     if (currentUser) {
-      history.push("/");
+      navigate("/");
     }
     console.log({ currentUser });
-  }, [currentUser, history]);
+  }, [currentUser, navigate]);
 
   return (
     <div>
@@ -216,7 +216,7 @@ const Authorization = (props) => {
             login(values.email, values.password)
               .then(() => {
                 toastSuccessNotify(`${method} Successfully performed!`);
-                history.push("/");
+                navigate("/");
                 actions.setSubmitting(false); //set submit islemi formik bizim icin yapiyor
               })
               .catch((error) => {
@@ -228,7 +228,7 @@ const Authorization = (props) => {
             signup(values.email, values.password)
               .then(() => {
                 toastSuccessNotify(`${method} Successfully performed!`);
-                history.push("/");
+                navigate("/");
                 actions.setSubmitting(false);
               })
               .catch((error) => {

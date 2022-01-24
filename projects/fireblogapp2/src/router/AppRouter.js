@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Login } from "../pages/LoginRegister";
 import { Register } from "../pages/LoginRegister";
@@ -8,8 +8,35 @@ import UpdateBlog from "../pages/UpdateBlog";
 import Detail from "../pages/Detail";
 import NewBlog from "../pages/NewBlog";
 import Profile from "../pages/Profile";
-import PrivateRouter from "./PrivateRouter";
+import { useAuth } from "../context/AuthContextProvider";
 
+const AppRouter = () => {
+  const { currentUser } = useAuth();
+  return (
+    <React.Fragment>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" exact element={<Dashboard />} />
+        {currentUser ? (
+          <React.Fragment>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/new-blog" element={<NewBlog />} />
+            <Route path="/update-blog/:id" element={<UpdateBlog />} />
+            <Route path="/detail/:id" element={<Detail />} />
+          </React.Fragment>
+        ) : (
+          <Route path="*" element={<Navigate to="/register" />} />
+        )}
+      </Routes>
+    </React.Fragment>
+  );
+};
+
+export default AppRouter;
+
+/* old switch structure
 const AppRouter = () => {
   return (
     <Router>
@@ -26,6 +53,6 @@ const AppRouter = () => {
       </Switch>
     </Router>
   );
-};
+}; 
 
-export default AppRouter;
+export default AppRouter;*/

@@ -14,7 +14,7 @@ import moment from "moment";
 import { useBlog } from "../context/BlogContextProvider";
 import { useAuth } from "../context/AuthContextProvider";
 import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toastSuccessNotify } from "../utils/ToastNotify";
 
 const useStyles = makeStyles({
@@ -66,24 +66,25 @@ const useStyles = makeStyles({
 });
 
 //matc...react routerin propu
-const Detail = ({ match }) => {
+const Detail = () => {
+  const params = useParams();
   const classes = useStyles();
   const { currentUser } = useAuth();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { getOneBlog, deleteOneBlog } = useBlog();
   //getoneblog tek bir blog döndürüyor gibi görünsede firebase dolayisi ile aslinda array döndürüyor
-  const result = getOneBlog(match.params.id);
+  const result = getOneBlog(params.id);
   console.log(result);
 
   const deleteHandler = (id) => {
     deleteOneBlog(id);
-    history.push("/");
+    navigate("/");
     toastSuccessNotify("Deleted successfully!");
   };
 
   const updateHandler = (id) => {
-    history.push(`/update-blog/${id}`);
+    navigate(`/update-blog/${id}`);
   };
 
   return (

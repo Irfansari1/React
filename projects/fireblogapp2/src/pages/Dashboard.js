@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     "& > *": {
-      margin: theme.spacing(5),
+      margin: theme.spacing(2),
     },
-    backgroundColor: "#bdbdbd",
+    backgroundColor: "#D4D3D4",
   },
 
   title: {
     fontFamily: "Girassol",
-    backgroundColor: "#bdbdbd",
+    backgroundColor: "#D4D3D4",
     textAlign: "center",
     color: "#046582",
   },
@@ -33,7 +33,7 @@ const Dashboard = () => {
   return (
     <div className={classes.mainRoot}>
       <Typography className={classes.title} variant="h3" noWrap>
-        ─ ─ ─ ─ All Blogs ─ ─ ─ ─
+        ─ ─ ─ All Blogs ─ ─ ─ ─
       </Typography>
       <>
         <Grid container className={classes.root} justifyContent="center">

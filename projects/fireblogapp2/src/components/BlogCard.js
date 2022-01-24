@@ -8,7 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import placeholder from "../assets/placeholder.png";
 import AccountCircle from "@material-ui/icons/AccountCircle";
@@ -20,6 +20,9 @@ const useStyles = makeStyles(() => ({
   root: {
     minWidth: 345,
     maxWidth: 345,
+
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
   },
   media: {
     height: 140,
@@ -60,7 +63,7 @@ const BlogCard = ({ item }) => {
   } = item;
 
   const classes = useStyles();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { currentUser } = useAuth();
 
   const openDetails = () => {
@@ -68,7 +71,7 @@ const BlogCard = ({ item }) => {
       toastErrorNotify("Please Login to get the details");
     }
     // if user doesnt exist it is routed to the login page via PrivateRouter
-    history.push(`/detail/${id}`);
+    navigate(`/detail/${id}`);
   };
 
   return (
