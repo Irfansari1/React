@@ -53,7 +53,7 @@ function App() {
         <div className="user">
           <img
             style={{
-              borderRadius: "20%",
+              borderRadius: "50%",
               width: "200px",
               margin: "10px",
             }}

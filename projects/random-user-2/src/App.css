@@ -19,10 +19,10 @@
   margin: 5rem auto;
   max-width: 750px;
   height: 400px;
-  background-color: rgb(131, 81, 81, 0.6);
+  background-color: rgba(143, 233, 210, 0.6);
   padding: 1rem;
   border-radius: 5%;
-  border: 5px solid #e1f1dd;
+  border: 5px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +50,7 @@ h2 {
   margin: 1rem auto;
   font-size: 2rem;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(45, 21, 61, 0.8);
   color: white;
   border: none;
   cursor: pointer;

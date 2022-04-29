@@ -25,7 +25,7 @@ export const data = [
     title: "Aquaman",
     desc: "Monarch of the undersea realm of Atlantis and King of the Seven Seas, Aquaman is one of the most powerful DC Super Heroes—commanding a kingdom that covers three-quarters of the Earth’s surface, including all the creatures contained within. Arthur Curry came from humble beginnings, as most of his life was spent exiled from his home, unaware of his noble origins. When he finally took the throne as an adult, he became the most legendary king in Atlantean history.",
     image:
-      "https://www.dccomics.com/sites/default/files/DCFD2021_Marquee_Char3_Aquaman_613fd8a6472d24.58983737.jpg",
+      "https://www.dccomics.com/sites/default/files/Char_Gallery_Aquaman_18_6054fd1a65e9e8.77126160.jpg",
   },
   {
     id: 5,
